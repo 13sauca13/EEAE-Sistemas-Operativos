@@ -53,10 +53,69 @@ El software de un sistema informático son todos los programas y datos. El siste
 
 Los programas son conjuntos de instrucciones que se cargarán el la memoria principal para ejecutarse, el procesador leerá cada instrucción e irá ejecutando el programa. Para realizar estos programas se utilizan diferentes lenguajes de programación:
 - **Lenguajes de bajo nivel**
-  - ***Lenguaje máquina***: Es el que comprende directamente el ordenador. Depende del hardware utilizado
+  - ***Lenguaje máquina***: Es el que comprende directamente el ordenador. Depende del hardware utilizado (cualquier otro lenguaje debe ser traducido a lenguaje máquina para ser ejecutado) Se trata de 0 y 1.
+  - ***Lenguaje ensamblador***: Está basado en el lenguaje máquina ya que cada instrucción de ensamblador equivale a una instrucción de lenguaje máquina. Utiliza instrucciones básicas pero varía dependiendo del microprocesador.
+- **Lenguajes de alto nivel**: Son lenguajes independientes del hardware que pueden llevarse de un ordenador a otro, no varían sus instrucciones, aun así deben ser traducidos a lenguaje máquina, para lo que hay dos métodos en función del lenguaje:
+  - Interpretar: Se va traduciendo y ejecutando las instrucciones directamente (es más lento)
+  - Compilar: Todo el programa se traduce y posteriormente se ejecuta entero. Hay que hacer la compilación previa a la ejecución pero es más rápido luego.
 
-#### Periféricos
-#### Memorias auxiliares
 ## Elementos, estructura y funciones
+El sistema operativo es un conjunto de programas que se inician al arrancar el ordenador y cuya función principal es desvincular al usuario de las características hardware de su equipo y facilitarle así la ejecución de otros programas, es decir, simplificar al usuario el uso del ordenador.
 
+En cada generación de ordenadores existieron diferentes sistemas operativos:
+- 1ª Generación: Sin sistema operativo algunos, EXEC I
+- 2ª Generación: EXEC II, EXEC 8, CTSS...
+- 3ª Generación: OS/360, TOPS-10, MULTICS, UNIX...
+- 4ª Generación: TOPS-20, BSD...
+- 5ª Generación: MS-DOS, Windows, XENIX, OS/400, Solaris, MAC OS, Linux...
+
+### Tipos de sistemas operativos
+Hay diferentes formas de clasificar los sistemas operativos en función de:
+- Tiempo de respuesta:
+  - Procesamiento por lotes
+  - Interactivos
+  - Tiempo real
+- Número de usuarios:
+  - Monousuario
+  - Multiusuario
+- Número de procesos:
+  - Monoprogramación
+  - Multiprogramación
+- Número de procesadores:
+  - Monoproceso
+  - Multiproceso
+    - Simétricos
+    - Asimétricos
+- Trabajo en red:
+  - Centralizados
+  - En red
+  - Distribuidos
+- Estructura del sistema operativo:
+  - Monolíticos
+  - En capas (o en niveles)
+  - Máquina virtual
+  - Cliente-Servidor
+
+### Funciones del sistema operativo
+Las principales funciones de un sistema operativo son:
+#### Gestión de procesos
+Un proceso es un programa en ejecución (un programa del sistema, los programas "normales" o aplicaciones, pueden tener muchisimos procesos). Existen dos tipos de procesos con diferentes estados:
+- Procesos del sistema: Se ejecutan por el sistema y proporcionan servicios al usuario o al propio sistema.
+- Procesos de usuario: Procesos que manda ejecutar el propio usuario.
+
+Los procesos pueden estar:
+- Listos: Preparados para ser ejecutados, a la espera de que la CPU quede libre.
+- Bloqueados: El proceso está esperando un recurso ocupado por otro proceso.
+- En ejecución: Está ocupando CPU.
+#### Gestión de memoria
+Un sistema operativo debe ser capaz de gestionar la memoria del sistema. Los procesos que se ejecutan en el sistema necesitan que se les asigne una zona de memoria para su ejecución y que se le proteja esa zona de otros accesos o poder compartila.
+- Protección
+- Particionamiento
+  - Paginación
+  - Segmentación
+- Intercambio (*swapping*)
+- Compartción
+- Reubicación
+- Memoria Virtual
+- Fragmentación (interna/externa)
 ## Linux
