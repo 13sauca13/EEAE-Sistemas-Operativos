@@ -118,4 +118,103 @@ Un sistema operativo debe ser capaz de gestionar la memoria del sistema. Los pro
 - Reubicación
 - Memoria Virtual
 - Fragmentación (interna/externa)
+#### Gestión de E/S
+Los dispositivos de E/S tales como periféricos y memorias auxiliares deben ser gestionados por el sistema operativo a través de diferentes métodos:
+- Interrupciones y rutinas de atención: Una interrupción se produce cuando algún elemento hardware produce una señal al sistema para llamar su atención. Se las llaman IRQ (Interrupt Request), y tienen como función intemumpir el trabajo del procesador para destinario a otra actividad.
+- Acceso directo a memoria (DMA): La realizan ciertos periféricos cuando la cantidad de información que quiere transferir es grande. Se realiza a través de unas líneas especiales llamadas DRQ (DMA Request) para dejar libre al procesador.
+- Caching:  Consiste en almacenar en una caché temporal, de rápido acceso, los datos más frecuentemente solicitados o envados.
+- Buffering: Consiste en utilizar un área de memoria simulando un dispositivo o un periférico que hará de dispositivo como buffer, entre el periférico real y el procesador.
+- Spooling: Consiste en simultanear la E/S a los periféricos.
+#### Gestión de archivos
+Un archivo o fichero es un objeto que representa la unidad lógica de almacenamiento de información, para gestionar los archivos el sistema operativo cuenta con el sistema de ficheros, los más utilzados son los que se indican a continuación:
+- FAT: Tabla de asignación de ficheros (File Allocation Table). Sistema de archivos introducido a partir del MS-DOS. Existen dos tipos de sistemas de archivos FAT:
+  - FAT16
+  - FAT32
+- NTFS: Sistema de archivos de nueva tecnología (New Technology File System) de Windows. Mejora el sistema de ficheros al introducir mayor seguridad, mayor estabilidad, mayor tamaño de los archivos.
+- EXT2, EXT3 y EXT4: Sistemas de archivos soportados por la mayoría de las distribuciones Linux. Cada uno es la evolución del anterior (EXT4 soporta *journaling* pararegistrar cambios y poder recuperar datos en caso de fallo)
+- ReiserFS: Sistema de algunas distros de Linux.
+- CDFS: Sistema de los CD-ROM (ISO 9660)
+- UDF: Sistema de los DVD y los BluRay (ISO 13346)
+- HFS: *Hierarchical File System* Sistema de archivos introducido por UNIX, actualmente usado por MacOS.
+- HFS+: Sustituto de HFS y soporta journaling.
+
 ## Linux
+
+| Comando	| Opciones | Descripción	| Ejemplo |
+| - | - | - | - |
+| ls	| N/A	| Lista los archivos y directorios en el directorio actual.	| ls |
+| |	-l	| Lista en formato largo.	| ls -l |
+| |	-a	| Incluye archivos ocultos.	| ls -a |
+| |	-h	| Muestra tamaños en formato legible.	| ls -h |
+| cd	| N/A	| Cambia el directorio actual.	| cd /home |
+| pwd	| N/A	| Muestra la ruta completa del directorio actual.	| pwd |
+| mkdir	| N/A	| Crea un nuevo directorio.	| mkdir nuevo_directorio |
+|	| -p	| Crea directorios padres según sea necesario.	| mkdir -p ruta/nuevo_directorio |
+| rmdir	| N/A	| Elimina un directorio vacío.	| rmdir viejo_directorio |
+| rm	| N/A	| Elimina archivos o directorios.	| rm archivo.txt |
+|	| -r	| Elimina directorios de forma recursiva.	| rm -r directorio |
+| |	-f	|Fuerza la eliminación sin preguntar.	| rm -f archivo.txt |
+| cp	| N/A	| Copia archivos o directorios.	| cp archivo.txt copia_archivo.txt |
+	-r	Copia directorios de forma recursiva.	cp -r directorio copia_directorio
+	-i	Pregunta antes de sobrescribir.	cp -i archivo.txt copia_archivo.txt
+mv	N/A	Mueve o renombra archivos o directorios.	mv archivo.txt nuevo_nombre.txt
+	-i	Pregunta antes de sobrescribir.	mv -i archivo.txt nuevo_nombre.txt
+	-u	Solo mueve si el archivo de destino es más antiguo.	mv -u archivo.txt nuevo_nombre.txt
+touch	N/A	Crea un archivo vacío o actualiza la fecha de modificación de un archivo.	touch nuevo_archivo.txt
+cat	N/A	Muestra el contenido de un archivo.	cat archivo.txt
+more	N/A	Muestra el contenido de un archivo página por página.	more archivo.txt
+less	N/A	Similar a more, pero permite desplazarse hacia arriba y hacia abajo.	less archivo.txt
+head	N/A	Muestra las primeras líneas de un archivo.	head archivo.txt
+	-n	Especifica el número de líneas a mostrar.	head -n 10 archivo.txt
+tail	N/A	Muestra las últimas líneas de un archivo.	tail archivo.txt
+	-n	Especifica el número de líneas a mostrar.	tail -n 10 archivo.txt
+	-f	Muestra el contenido en tiempo real.	tail -f archivo.txt
+find	N/A	Busca archivos y directorios en una jerarquía de directorios.	find /home -name archivo.txt
+	-name	Busca por nombre.	find /home -name archivo.txt
+	-type	Busca por tipo de archivo.	find /home -type d
+grep	N/A	Busca texto dentro de archivos.	grep "texto" archivo.txt
+	-i	Ignora mayúsculas y minúsculas.	grep -i "texto" archivo.txt
+	-r	Busca de forma recursiva.	grep -r "texto" /home
+chmod	N/A	Cambia los permisos de un archivo o directorio.	chmod 755 archivo.txt
+	-R	Cambia permisos de forma recursiva.	chmod -R 755 directorio
+chown	N/A	Cambia el propietario de un archivo o directorio.	chown usuario:grupo archivo.txt
+	-R	Cambia propietario de forma recursiva.	chown -R usuario:grupo directorio
+df	N/A	Muestra el uso del espacio en disco.	df
+	-h	Muestra tamaños en formato legible.	df -h
+man	N/A	Muestra el manual de usuario de un comando.	man ls
+du	N/A	Muestra el uso del espacio en disco por archivos y directorios.	du
+	-sh	Muestra el tamaño total en formato legible.	du -sh /home
+ps	N/A	Muestra una lista de procesos en ejecución.	ps
+	-aux	Muestra todos los procesos en ejecución.	ps aux
+kill	N/A	Termina un proceso.	kill 1234
+	-9	Fuerza la terminación de un proceso.	kill -9 1234
+top	N/A	Muestra los procesos en ejecución en tiempo real.	top
+echo	N/A	Muestra un mensaje en la pantalla.	echo "Hola, mundo"
+nano	N/A	Editor de texto en la terminal.	nano archivo.txt
+vi	N/A	Otro editor de texto en la terminal.	vi archivo.txt
+wget	N/A	Descarga archivos desde la web.	wget http://ejemplo.com/archivo.zip
+curl	N/A	Transfiere datos desde o hacia un servidor.	curl http://ejemplo.com
+tar	N/A	Archiva varios archivos en uno solo.	tar -cvf archivo.tar directorio
+	-cvf	Crea un archivo tar.	tar -cvf archivo.tar directorio
+	-xvf	Extrae un archivo tar.	tar -xvf archivo.tar
+zip	N/A	Comprime archivos.	zip archivo.zip archivo.txt
+	-r	Comprime directorios de forma recursiva.	zip -r archivo.zip directorio
+unzip	N/A	Descomprime archivos.	unzip archivo.zip
+useradd	N/A	Crea un nuevo usuario.	useradd nuevo_usuario
+	-m	Crea el directorio home del usuario.	useradd -m nuevo_usuario
+	-d	Especifica el directorio home del usuario.	useradd -d /ruta/home nuevo_usuario
+	-s	Especifica el shell del usuario.	useradd -s /bin/bash nuevo_usuario
+	-G	Añade el usuario a uno o más grupos.	useradd -G grupo1,grupo2 nuevo_usuario
+usermod	N/A	Modifica una cuenta de usuario existente.	usermod -l nuevo_nombre usuario
+	-l	Cambia el nombre de usuario.	usermod -l nuevo_nombre usuario
+	-d	Cambia el directorio home del usuario.	usermod -d /nueva/ruta/home usuario
+	-s	Cambia el shell del usuario.	usermod -s /bin/zsh usuario
+	-G	Cambia los grupos a los que pertenece el usuario.	usermod -G grupo1,grupo2 usuario
+passwd	N/A	Cambia la contraseña de un usuario.	passwd usuario
+userdel	N/A	Elimina una cuenta de usuario.	userdel usuario
+	-r	Elimina el directorio home del usuario.	userdel -r usuario
+groupadd	N/A	Crea un nuevo grupo.	groupadd nuevo_grupo
+groupdel	N/A	Elimina un grupo existente.	groupdel grupo
+gpasswd	N/A	Administra el archivo /etc/group.	gpasswd -a usuario grupo
+	-a	Añade un usuario a un grupo.	gpasswd -a usuario grupo
+	-d	Elimina un usuario de un grupo.	gpasswd -d usuario grupo
