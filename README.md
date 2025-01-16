@@ -139,6 +139,13 @@ Un archivo o fichero es un objeto que representa la unidad lógica de almacenami
 - HFS+: Sustituto de HFS y soporta journaling.
 
 ## Linux
+El sistema operativo Linux es una versión que se basa en el sistema operativo Unix, desarrollada para ordenadores personales, es un sistema operativo multiusuario y multitarea.
+
+El kernel es el núcleo del sistema operativo. Es la parte que interactúa directamente con el hardware, administra todos los recursos hardware del sistema, como la memoria, el microprocesador o los periféricos. 
+Este kernel tiene una estructura que aísla al usuario del propio núcleo, es un proceso llamado shell que interpreta las órdenes o aplicaciones del usuario, bien desde una terminal en modo texto, o bien desde un entomo gráfico. Una misma versión de Linux puede tener instaladas distintas shells y un usuario puede cambiar entre una y otra.
+Uno de los intérpretes de comandos más extendidos actualmente es el shell bash (Bourne Agaín Shell) que utilizan por defecto muchas distribuciones, aunque hay otros, como el shell sh (Bourne shell) creado para Unix.
+
+Usaremos la shell de texto:
 
 | Comando	| Opciones | Descripción	| Ejemplo |
 | - | - | - | - |
@@ -218,3 +225,26 @@ Un archivo o fichero es un objeto que representa la unidad lógica de almacenami
 |gpasswd|N/A	|Administra el archivo /etc/group.|	gpasswd -a usuario grupo|
 |	|-a	|Añade un usuario a un grupo.|	gpasswd -a usuario grupo|
 |	|-d	|Elimina un usuario de un grupo.|	gpasswd -d usuario grupo|
+
+Partiendo del directorio raíz ```/``` están todas las carpetas y estructura del sistema operativo:
+
+| Carpeta | Descripción |
+| --- | --- |
+| /bin | Estático y compartido, contiene archivos binarios ejecutables necesarios para el funcionamiento del SO. Estos archivos los pueden usar todos los usuarios. NO PUEDE CONTENER SUBDIRECTORIOS |
+| /boot | Estático y no compartible, contiene todos los archivos necesarios para el arranque del ordenador excepto los archivos de configuración |
+| /dev | Aqui estarán los dispositivos, a los que unix trata como un archivo |
+| /etc | Directorio estatico con archivos de configuración del sistema operativo y diversos programas |
+| /home | Variable y compartible donde se encuentran los ficheros de todos los usuarios salvo root. Cada usuario tendrá su carpeta en /home |
+| /lib | Estático y compartible. Contiene bibliotecas necesarias para ejecutar los ejecutables de /bin y /sbin. Tambien contiene módulos kernel y controladores necesarios durante el arranque y funcionamiento del SO |
+| /mnt | Alberga los puntos de montaje de los diferentes dispositivos |
+| /media | Similar a /mnt. Punto de montaje de medios extraibles |
+| /opt | Estático y compartible. Almacena programas que no vienen con nuestro SO y no siguen estándares para almacenar en /usr |
+| /proc | Sistema de archivos virtual que proporciona info de procesos y aplicaciones por cada proceso existe un subdirectorio. Esta carpeta está en la RAM |
+| /root | Variable y no compartible. Es el /home del usuario root |
+| /sbin | Estático y compartible. Similar a /bin pero su contenido sólo puede ser usado por root |
+| /srv | Almacena datos y directorios que usan los servidores instalados en el equipo (p.ej. ftp, servidor web...|
+| /tmp | Aqui se crean y almacenan los archivos temporales. Se vacía con cada reinicio |
+| /usr | Compartido y estático. Contiene la mayoría de los programas instalados en el equipo. Accesible solo de lectura para todos los usuarios |
+| /var | Archivos de datos variables y temporales como logs, cache, etc. |
+| /sys | Similar a /proc. Información sobre el kernel, particiones,sistemas de archivo... |
+| /lost+found | Se crea después de ejecutar herramioentas para restaurar y recuperar (p.ej. ```fsch```) |
