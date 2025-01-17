@@ -236,6 +236,19 @@ Usaremos la shell de texto:
 > - Fecha y hora de la última modificación: Indica cuándo fue la última vez que se modificó el archivo o directorio.
 > - Nombre del archivo o directorio: Muestra el nombre del archivo o directorio.
 
+Con respecto al almacenamiento, la gestión del sistema archivos se realiza utilizando una estructura de datos propia de los sistemas operativos tipo Unix llamada **inodos**.
+
+Un inodo es como una ficha de información sobre un archivo o directorio en un sistema de archivos de Linux. ***No contiene los datos del archivo, sino información sobre el archivo.*** Cada archivo o directorio tiene su propio inodo, identificado por un número único. De esta manera existen dos tipos de enlaces en Linux:
+- Enlace duro (Hard Link):
+  - Son referencias directas al mismo inodo.
+  - Varios nombres de archivo pueden apuntar al mismo inodo.
+  - Si eliminas un nombre, los datos no se borran hasta que se eliminen todos los enlaces duros.
+- Enlace blando (Soft Link ó Symbolic Link):
+  - Son archivos especiales que contienen una ruta hacia otro archivo o directorio.
+  - Funcionan como accesos directos.
+  - Si eliminas el archivo original, el enlace simbólico se rompe y apunta a un destino inexistente.
+Es decir: Los enlaces duros comparten el mismo inodo que el archivo original. Todos los nombres (enlaces duros) que apuntan al mismo inodo son equivalentes mientras que los enlaces blandos tienen su propio inodo y contienen una ruta al archivo original. No comparten el inodo con el archivo al que apuntan.
+
 Partiendo del directorio raíz ```/``` están todas las carpetas y estructura del sistema operativo:
 
 | Carpeta | Descripción |
