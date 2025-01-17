@@ -227,7 +227,7 @@ Usaremos la shell de texto:
 |	|-d	|Elimina un usuario de un grupo.|	gpasswd -d usuario grupo|
 
 > [!NOTE]
-> El comando ls -l en Ubuntu muestra una lista detallada de los archivos y directorios en el directorio actual. Cada columna en la salida tiene un significado específico:
+> El comando ls -l en Linux muestra una lista detallada de los archivos y directorios en el directorio actual. Cada columna en la salida tiene un significado específico:
 > - Permisos: Indica los permisos de lectura, escritura y ejecución para el propietario, el grupo y otros usuarios. El primer carácter indica el tipo de archivo (por ejemplo, - para archivos regulares, d para directorios).
 > - Número de enlaces: Muestra el número de enlaces duros al archivo o directorio.
 > - Propietario: Indica el nombre del usuario propietario del archivo o directorio.
