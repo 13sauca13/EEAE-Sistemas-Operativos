@@ -226,6 +226,16 @@ Usaremos la shell de texto:
 |	|-a	|Añade un usuario a un grupo.|	gpasswd -a usuario grupo|
 |	|-d	|Elimina un usuario de un grupo.|	gpasswd -d usuario grupo|
 
+> !NOTE
+> El comando ls -l en Ubuntu muestra una lista detallada de los archivos y directorios en el directorio actual. Cada columna en la salida tiene un significado específico:
+> - Permisos: Indica los permisos de lectura, escritura y ejecución para el propietario, el grupo y otros usuarios. El primer carácter indica el tipo de archivo (por ejemplo, - para archivos regulares, d para directorios).
+> - Número de enlaces: Muestra el número de enlaces duros al archivo o directorio.
+> - Propietario: Indica el nombre del usuario propietario del archivo o directorio.
+> - Grupo: Indica el nombre del grupo propietario del archivo o directorio.
+> - Tamaño: Muestra el tamaño del archivo en bytes.
+> - Fecha y hora de la última modificación: Indica cuándo fue la última vez que se modificó el archivo o directorio.
+> - Nombre del archivo o directorio: Muestra el nombre del archivo o directorio.
+
 Partiendo del directorio raíz ```/``` están todas las carpetas y estructura del sistema operativo:
 
 | Carpeta | Descripción |
